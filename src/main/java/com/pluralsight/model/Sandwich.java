@@ -5,7 +5,7 @@ import com.pluralsight.ui.UserInterface;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Sandwich {
+public class Sandwich extends Order{
     // store bread type (white, wheat, rye, wrap)
     private String bread;
     // store sandwich size (4, 8, or 12 inches)

@@ -1,4 +1,4 @@
 package com.pluralsight.model;
 
-public class Chips {
+public class Chips extends Order{
 }

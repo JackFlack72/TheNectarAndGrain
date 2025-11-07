@@ -1,4 +1,4 @@
 package com.pluralsight.model;
 
-public class Drink {
+public class Drink extends Order{
 }

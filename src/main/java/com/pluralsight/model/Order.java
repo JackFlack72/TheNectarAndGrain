@@ -2,6 +2,7 @@ package com.pluralsight.model;
 
 public class Order {
     // create List for order items (sandwiches, drinks, and chips)
+
     // store total price
 
     // constructor:

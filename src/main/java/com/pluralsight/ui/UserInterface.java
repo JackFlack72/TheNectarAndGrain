@@ -4,22 +4,27 @@ import java.util.Scanner;
 
 public class UserInterface {
     // declare a Scanner object for reading input from the console
-    Scanner scanner = new Scanner(System.in);
+    Scanner scanner;
     // constructor:
 
     public UserInterface(Scanner scanner) {
-        this.scanner = scanner;
+        this.scanner = new Scanner(System.in);
     }
 
     // showHomeScreen:
     public void showHomeScreen() {
         //   - print app title and welcome message
-
+        System.out.println("Welcome to The Nectar and Grain!");
         //   - print:
-        //       1) New Order
-        //       0) Exit
-        //   - prompt user for choice
-        //   - return user input
+        while (running) {
+            //       1) New Order
+
+            //       0) Exit
+
+            //   - prompt user for choice
+
+            //   - return user input
+        }
     }
     // showOrderMenu:
     //   - print:
@@ -32,6 +37,9 @@ public class UserInterface {
     //   - return user input
 
     // promptForBreadType:
+    public int promptForBreadType() {
+
+    }
     //   - print list of bread types
     //   - ask user to type one in (e.g., "white")
     //   - return as user input

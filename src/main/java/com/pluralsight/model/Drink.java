@@ -18,13 +18,6 @@ public class Drink {
     }
 
     public double getPrice() {
-//        if (drinkSize.toLowerCase().equals("small")) {
-//            return 2.00;
-//        } else if (drinkSize.toLowerCase().equals("medium")) {
-//            return 2.50;
-//        } else {
-//            return 3.00;
-//        }
         return switch (drinkSize.toLowerCase()) {
             case "small" -> 2.00;
             case "medium" -> 2.50;

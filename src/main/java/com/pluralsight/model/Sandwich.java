@@ -127,7 +127,11 @@ public class Sandwich extends Order {
     // getSummary method:
     //   - return a string with all sandwich details and price
     public String getSummary() {
-        final StringBuilder sb = new StringBuilder("The Nectar and Grain Summary{");
+        StringBuilder sb = new StringBuilder();
+
+        sb.append("=========================================\n");
+        sb.append("           SANDWICH SUMMARY\n");
+        sb.append("=========================================\n");
         sb.append("breadType = '").append(breadType).append('\'');
         sb.append(", breadSize = ").append(breadSize);
         sb.append(", isToasted = ").append(isToasted);
@@ -136,7 +140,6 @@ public class Sandwich extends Order {
         sb.append(", toppings = ").append(toppings);
         sb.append(", sauces = ").append(sauces);
         sb.append(", totalPrice = ").append(totalPrice);
-        sb.append('}');
         return sb.toString();
     }
 }

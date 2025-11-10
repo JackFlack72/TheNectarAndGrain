@@ -49,10 +49,30 @@ public class Sandwich extends Order{
     }
 
     // addMeat method:
-    public void addMeat(String meat) {
+    public void addMeat(String meatType, boolean isExtra) {
         //   - add meat(s)
-        meats.add(meat);
+        String meat;
+        if (isExtra) {
+            meat = meatType + " (EXTRA)";
+        } else {
+            meat = meatType;
+        }
         //   - what is the price based on size and whether it's extra?
+        double meatPrice = switch (this.breadSize) {
+            case 4 -> 1.00;
+            case 8 -> 2.00;
+            case 12 -> 3.00;
+            default -> 0.00;
+        };
+        this.totalPrice += meatPrice;
+
+        double extraMeatPrice = switch (this.breadSize) {
+            case 4 -> 0.50;
+            case 8 -> 1.00;
+            case 12 -> 1.50;
+            default -> 0.00;
+        };
+        this.totalPrice += extraMeatPrice;
     }
 
     // addCheese method:

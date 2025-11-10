@@ -5,7 +5,7 @@ import com.pluralsight.ui.UserInterface;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Sandwich extends Order{
+public class Sandwich extends Order {
     // store bread type (white, wheat, rye, wrap)
     private String breadType;
     // store sandwich size (4, 8, or 12 inches)
@@ -53,7 +53,7 @@ public class Sandwich extends Order{
         //   - add meat(s)
         String meat;
         if (isExtra) {
-            meat = meatType + " (EXTRA)";
+            meat = meatType + " is (EXTRA)";
         } else {
             meat = meatType;
         }
@@ -65,35 +65,78 @@ public class Sandwich extends Order{
             default -> 0.00;
         };
         this.totalPrice += meatPrice;
-
-        double extraMeatPrice = switch (this.breadSize) {
-            case 4 -> 0.50;
-            case 8 -> 1.00;
-            case 12 -> 1.50;
-            default -> 0.00;
-        };
-        this.totalPrice += extraMeatPrice;
+        if (isExtra) {
+            double extraMeatPrice = switch (this.breadSize) {
+                case 4 -> 0.50;
+                case 8 -> 1.00;
+                case 12 -> 1.50;
+                default -> 0.00;
+            };
+            this.totalPrice += extraMeatPrice;
+        }
     }
 
     // addCheese method:
-    public void addCheese(String cheese){
+    public void addCheese(String cheeseType, boolean isExtra) {
         //   - add cheese(s)
-        cheeses.add(cheese);
+        String cheese;
+        if (isExtra) {
+            cheese = cheeseType + " is (EXTRA)";
+        } else {
+            cheese = cheeseType;
+        }
         //   - add price depending on size and whether it's extra
-
+        double cheesePrice = switch (this.breadSize) {
+            case 4 -> 0.75;
+            case 8 -> 1.50;
+            case 12 -> 2.25;
+            default -> 0.00;
+        };
+        this.totalPrice += cheesePrice;
+        if (isExtra) {
+            double extraCheesePrice = switch (this.breadSize) {
+                case 4 -> 0.30;
+                case 8 -> 0.60;
+                case 12 -> 0.90;
+                default -> 0.00;
+            };
+            this.totalPrice += extraCheesePrice;
+        }
     }
 
     // addTopping method:
-    //   - add topping(s)
-    //   - no charge
+    public void addTopping(String topping) {
+        //   - add topping(s)
+        //   - no charge
+        this.toppings.add(topping);
+    }
 
     // addSauce method:
-    //   - add sauce(s)
-    //   - no charge
+    public void addSauce(String sauce) {
+        //   - add sauce(s)
+        //   - no charge
+        this.sauces.add(sauce);
+    }
 
     // getPrice method:
-    //   - return current total price
+    public double getPrice() {
+        //   - return current total price
+        return this.totalPrice;
+    }
 
     // getSummary method:
     //   - return a string with all sandwich details and price
+    public String getSummary() {
+        final StringBuilder sb = new StringBuilder("The Nectar and Grain Summary{");
+        sb.append("breadType = '").append(breadType).append('\'');
+        sb.append(", breadSize = ").append(breadSize);
+        sb.append(", isToasted = ").append(isToasted);
+        sb.append(", meats = ").append(meats);
+        sb.append(", cheeses = ").append(cheeses);
+        sb.append(", toppings = ").append(toppings);
+        sb.append(", sauces = ").append(sauces);
+        sb.append(", totalPrice = ").append(totalPrice);
+        sb.append('}');
+        return sb.toString();
+    }
 }

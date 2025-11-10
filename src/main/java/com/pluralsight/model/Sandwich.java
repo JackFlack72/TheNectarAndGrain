@@ -7,7 +7,7 @@ import java.util.List;
 
 public class Sandwich extends Order{
     // store bread type (white, wheat, rye, wrap)
-    private String bread;
+    private String breadType;
     // store sandwich size (4, 8, or 12 inches)
     private int breadSize;
     // store if sandwich is toasted
@@ -23,15 +23,29 @@ public class Sandwich extends Order{
     //   - initialize properties
     //   - set base price based on size
 
-    public Sandwich(String bread, int breadSize, boolean isToasted) {
-        this.bread = bread;
+    public Sandwich(String breadType, int breadSize, boolean isToasted) {
+        this.breadType = breadType;
         this.breadSize = breadSize;
         this.isToasted = isToasted;
         this.meats = new ArrayList<>();
         this.cheeses = new ArrayList<>();
         this.toppings = new ArrayList<>();
         this.sauces = new ArrayList<>();
-        this.totalPrice = totalPrice;
+        this.totalPrice = getBasePrice(breadSize);
+    }
+
+    static double basePriceFourInch = 5.50;
+    static double basePriceEightInch = 7.00;
+    static double basePriceTwelveInch = 8.50;
+
+
+    private double getBasePrice(int breadSize) {
+        return switch (breadSize) {
+            case 4 -> basePriceFourInch;
+            case 8 -> basePriceEightInch;
+            case 12 -> basePriceTwelveInch;
+            default -> 0.00;
+        };
     }
 
     // addMeat method:

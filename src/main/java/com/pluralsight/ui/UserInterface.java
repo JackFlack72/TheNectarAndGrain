@@ -1,18 +1,26 @@
 package com.pluralsight.ui;
 
+import java.util.Scanner;
+
 public class UserInterface {
     // declare a Scanner object for reading input from the console
-
+    Scanner scanner = new Scanner(System.in);
     // constructor:
 
-    // showHomeScreen:
-    //   - print app title and welcome message
-    //   - print:
-    //       1) New Order
-    //       0) Exit
-    //   - prompt user for choice
-    //   - return user input
+    public UserInterface(Scanner scanner) {
+        this.scanner = scanner;
+    }
 
+    // showHomeScreen:
+    public void showHomeScreen() {
+        //   - print app title and welcome message
+
+        //   - print:
+        //       1) New Order
+        //       0) Exit
+        //   - prompt user for choice
+        //   - return user input
+    }
     // showOrderMenu:
     //   - print:
     //       1) Add Sandwich

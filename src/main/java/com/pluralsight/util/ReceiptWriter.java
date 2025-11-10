@@ -3,6 +3,8 @@ package com.pluralsight.util;
 import com.pluralsight.model.Order;
 
 import java.io.FileWriter;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class ReceiptWriter {
     public static void saveReceipt(Order order) {
@@ -25,5 +27,9 @@ public class ReceiptWriter {
 
     private static String generateTimestamp() {
         // Create timestamp string useing a formatter
+        LocalDateTime now = LocalDateTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd-HHmmss");
         // return that string
+        return now.format(formatter);
+    }
 }

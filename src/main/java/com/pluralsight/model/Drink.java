@@ -1,6 +1,6 @@
 package com.pluralsight.model;
 
-public class Drink extends Order {
+public class Drink {
     private String drinkSize;
     private String drinkFlavor;
 

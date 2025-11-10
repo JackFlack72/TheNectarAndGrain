@@ -1,6 +1,6 @@
 package com.pluralsight.model;
 
-public class Chips extends Order{
+public class Chips {
     private String chipsType;
 
     public Chips(String chipsType) {

@@ -205,7 +205,7 @@ public class UserInterface {
         promptForToppings(sandwich);
         promptForSauces(sandwich);
 
-        order.addSandwich(sandwich);
+        this.order.addSandwich(sandwich);
         System.out.println("Sandwich added to your order!");
     }
 

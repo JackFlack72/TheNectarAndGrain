@@ -9,7 +9,7 @@ public class Sandwich {
     // store bread type (white, wheat, rye, wrap)
     private String breadType;
     // store sandwich size (4, 8, or 12 inches)
-    private int breadSize;
+    private String breadSize;
     // store if sandwich is toasted
     private boolean isToasted;
     // store meats, cheeses, toppings, sauces
@@ -23,7 +23,7 @@ public class Sandwich {
     //   - initialize properties
     //   - set base price based on size
 
-    public Sandwich(String breadType, int breadSize, boolean isToasted) {
+    public Sandwich(String breadType, String breadSize, boolean isToasted) {
         this.breadType = breadType;
         this.breadSize = breadSize;
         this.isToasted = isToasted;
@@ -39,11 +39,11 @@ public class Sandwich {
     static double basePriceTwelveInch = 8.50;
 
 
-    private double getBasePrice(int breadSize) {
+    private double getBasePrice(String breadSize) {
         return switch (breadSize) {
-            case 4 -> basePriceFourInch;
-            case 8 -> basePriceEightInch;
-            case 12 -> basePriceTwelveInch;
+            case "4" -> basePriceFourInch;
+            case "8" -> basePriceEightInch;
+            case "12" -> basePriceTwelveInch;
             default -> 0.00;
         };
     }
@@ -60,17 +60,17 @@ public class Sandwich {
         this.meats.add(meat);
         //   - what is the price based on size and whether it's extra?
         double meatPrice = switch (this.breadSize) {
-            case 4 -> 1.00;
-            case 8 -> 2.00;
-            case 12 -> 3.00;
+            case "4" -> 1.00;
+            case "8" -> 2.00;
+            case "12" -> 3.00;
             default -> 0.00;
         };
         this.totalPrice += meatPrice;
         if (isExtra) {
             double extraMeatPrice = switch (this.breadSize) {
-                case 4 -> 0.50;
-                case 8 -> 1.00;
-                case 12 -> 1.50;
+                case "4" -> 0.50;
+                case "8" -> 1.00;
+                case "12" -> 1.50;
                 default -> 0.00;
             };
             this.totalPrice += extraMeatPrice;
@@ -89,17 +89,17 @@ public class Sandwich {
         this.cheeses.add(cheese);
         //   - add price depending on size and whether it's extra
         double cheesePrice = switch (this.breadSize) {
-            case 4 -> 0.75;
-            case 8 -> 1.50;
-            case 12 -> 2.25;
+            case "4" -> 0.75;
+            case "8" -> 1.50;
+            case "12" -> 2.25;
             default -> 0.00;
         };
         this.totalPrice += cheesePrice;
         if (isExtra) {
             double extraCheesePrice = switch (this.breadSize) {
-                case 4 -> 0.30;
-                case 8 -> 0.60;
-                case 12 -> 0.90;
+                case "4" -> 0.30;
+                case "8" -> 0.60;
+                case "12" -> 0.90;
                 default -> 0.00;
             };
             this.totalPrice += extraCheesePrice;

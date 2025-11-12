@@ -11,7 +11,7 @@ public class Sandwich {
     // store sandwich size (4, 8, or 12 inches)
     private String breadSize;
     // store if sandwich is toasted
-    private boolean isToasted;
+    private String toasted;
     // store meats, cheeses, toppings, sauces
     private List<String> meats;
     private List<String> cheeses;
@@ -23,10 +23,10 @@ public class Sandwich {
     //   - initialize properties
     //   - set base price based on size
 
-    public Sandwich(String breadType, String breadSize, boolean isToasted) {
+    public Sandwich(String breadType, String breadSize, String isToasted) {
         this.breadType = breadType;
         this.breadSize = breadSize;
-        this.isToasted = isToasted;
+        this.toasted = isToasted;
         this.meats = new ArrayList<>();
         this.cheeses = new ArrayList<>();
         this.toppings = new ArrayList<>();
@@ -136,7 +136,7 @@ public class Sandwich {
         sb.append("=========================================\n");
         sb.append("breadType = '").append(breadType).append('\'');
         sb.append(", breadSize = ").append(breadSize);
-        sb.append(", isToasted = ").append(isToasted);
+        sb.append(", isToasted = ").append(toasted);
         sb.append(", meats = ").append(meats);
         sb.append(", cheeses = ").append(cheeses);
         sb.append(", toppings = ").append(toppings);

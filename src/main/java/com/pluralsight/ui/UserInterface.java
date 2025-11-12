@@ -1,11 +1,17 @@
 package com.pluralsight.ui;
 
+import com.pluralsight.model.Chips;
+import com.pluralsight.model.Drink;
 import com.pluralsight.model.Order;
 import com.pluralsight.model.Sandwich;
+import com.pluralsight.util.ReceiptWriter;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class UserInterface {
+
     // declare a Scanner object for reading input from the console
     private Order order;
     private Scanner scanner = new Scanner(System.in);
@@ -15,6 +21,22 @@ public class UserInterface {
 
     public void display() {
         boolean running = true;
+        while (running) {
+            String displayChoice = showHomeScreen();
+            switch (displayChoice) {
+                case "1":
+                    addSandwich();
+                    break;
+                case "2":
+                    addDrink();
+                    break;
+                case "3":
+                    addChips();
+                    break;
+                case "4":
+
+            }
+        }
     }
 
     // showHomeScreen:
@@ -32,29 +54,55 @@ public class UserInterface {
         //   - return user input
         return getUserInput();
     }
+
     // showOrderMenu:
     private void showOrderMenu() {
-        //   - print:
-        //       1) Add Sandwich
-        System.out.println("1) Add Sandwich");
-        //       2) Add Drink
-        System.out.println("2) Add Drink");
-        //       3) Add Chips
-        System.out.println("3) Add Chips");
-        //       4) Checkout
-        System.out.println("4) Checkout");
-        //       0) Cancel Order
-        System.out.println("0) Cancel Order");
-        //   - prompt user for choice
-        System.out.println("\nEnter your choice: ");
-        //   - return user input
-        return getUserInput();
+        boolean orderMenu = true;
+        while (orderMenu) {
+            //   - print:
+            //       1) Add Sandwich
+            System.out.println("1) Add Sandwich");
+            //       2) Add Drink
+            System.out.println("2) Add Drink");
+            //       3) Add Chips
+            System.out.println("3) Add Chips");
+            //       4) Checkout
+            System.out.println("4) Checkout");
+            //       0) Cancel Order
+            System.out.println("0) Cancel Order");
+            //   - prompt user for choice
+            System.out.println("\nEnter your choice: ");
+            //   - return user input
+            String orderChoice = getUserInput();
+
+            switch (orderChoice) {
+                case "1":
+                    addSandwich();
+                    break;
+                case "2":
+                    addDrink();
+                    break;
+                case "3":
+                    addChips();
+                    break;
+                case "4":
+                    checkoutOrder();
+                    orderMenu = false;
+                    break;
+                case "0":
+                    orderMenu = false;
+                    System.out.println("The order has been cancelled.");
+                    break;
+                default:
+                    System.out.println("Invalid choice. Please try entering a choice again.");
+            }
+        }
     }
 
     // promptForBreadType:
     private String promptForBreadType() {
         //   - print list of bread types
-        System.out.println("\nBread: Delphi (white), Olympus (wheat), Athens (rye), Sparta (wrap)");
+        System.out.println("\nBread: Zeus' Cloud (white), Demeter's Harvest (wheat), Poseidon's Seaweed (rye), Cyclop's Eye (wrap)");
         //   - ask user to type one in (e.g., "white")
         System.out.println("Bread choice(enter the translated item in parens): ");
         //   - return as user input
@@ -78,26 +126,128 @@ public class UserInterface {
     }
 
     // promptForMeats:
-    private String promptForMeats(Sandwich sandwich) {
-        //   - possible loop (one or multiple meats?):
-        //       - ask user to type of meat (or 'done' to finish)
-        //       - ask if they want Extra meat? (yes or no)"
-        //   - return list of meats and extras
-        System.out.println("\nMeats: Atlas (steak), Achilles (ham), Perseus (salami), Hercules (roast beef), Apollo (chicken), Ares (bacon)");
-        System.out.println("(Enter 'done' when finished adding meats)");
-        boolean running = true;
-        while (running) {
+    private void promptForMeats(Sandwich sandwich) {
+        System.out.println("\nMeats: Minotaur's Might (steak), Ares' Rage (ham), Medusa's Serpent (salami), Hercules' Strength (roast beef), Apollo's Feather (chicken), Bacchus' Delight (bacon)");
+        System.out.println("(Enter: the translated name in parens, 'extra' to add extra meat, 'done' when finished adding meats): ");
+        boolean runningMeat = true;
+        while (runningMeat) {
             String meats = scanner.nextLine();
 
             if (meats.equalsIgnoreCase("done")) {
                 break;
+            } else if (meats.equalsIgnoreCase("extra")) {
+                sandwich.addMeat(meats, true);
+            } else {
+                sandwich.addMeat(meats, false);
             }
         }
+    }
+
+    private void promptForCheeses(Sandwich sandwich) {
+        System.out.println("\nCheeses: Athena's Wisdom (american), Prometheus' Fire (provolone), Chimera's Kiss (cheddar), Sphinx's Secret (swiss)");
+        System.out.println("(Enter: the translated name in parens, 'extra' to add extra cheese and 'done' when finished adding cheeses): ");
+        boolean runningCheese = true;
+        while (runningCheese) {
+            String cheeses = scanner.nextLine();
+
+            if (cheeses.equalsIgnoreCase("done")) {
+                break;
+            } else if (cheeses.equalsIgnoreCase("extra")) {
+                sandwich.addMeat(cheeses, true);
+            } else {
+                sandwich.addMeat(cheeses, false);
+            }
+        }
+    }
+
+    private void promptForToppings(Sandwich sandwich) {
+        System.out.println("\nToppings: Dryad's Leaf (lettuce), Sirens's Scream (peppers), Cerberus' Tear (onions), Hades' Ruby (tomatoes), Hephaestus' Forge (jalapenos), Aphrodite's Beauty (cucumbers), Gorgon's Gaze (pickles), Atlas' Hold (guacamole), Centaur's Cap (mushrooms)");
+        System.out.println("(Enter: the translated name in parens, 'done' when finished adding toppings): ");
+        boolean runningTopping = true;
+        while (runningTopping) {
+            String toppings = scanner.nextLine();
+
+            if (toppings.equalsIgnoreCase("done")) {
+                break;
+            }
+            if (!toppings.isEmpty()) {
+                sandwich.addSauce(toppings);
+            }
+        }
+    }
+
+    private void promptForSauces(Sandwich sandwich) {
+        System.out.println("\nSauces: Midas' Touch (mayo), Nike's Triumph (mustard), Cupid's Blood (ketchup), Triton's Cream (ranch), Odyssey Dressing (thousand island), Olympus Zest (vinaigrette), Charon's River (au jus)");
+        System.out.println("(Enter: the translated name in parens, 'done' when finished adding sauces): ");
+        boolean runningSauce = true;
+        while (runningSauce) {
+            String sauces = scanner.nextLine();
+
+            if (sauces.equalsIgnoreCase("done")) {
+                break;
+            }
+            if (!sauces.isEmpty()) {
+                sandwich.addSauce(sauces);
+            }
+        }
+    }
+
+    private void addSandwich() {
+        System.out.println("\n--- Build Your Sandwich ---");
+        String breadType = promptForBreadType();
+        String size = promptForSize();
+        String toasted = promptForToasted();
+
+        Sandwich sandwich = new Sandwich(breadType, size, toasted);
+
+        promptForMeats(sandwich);
+        promptForCheeses(sandwich);
+        promptForToppings(sandwich);
+        promptForSauces(sandwich);
+
+        order.addSandwich(sandwich);
+        System.out.println("Sandwich added to your order!");
+    }
+
+    private void addDrink() {
+        System.out.println("\n--- Add a Drink ---");
+        System.out.print("Enter drink size (small, medium, large): ");
+        String size = getUserInput().toLowerCase();
+        System.out.print("Enter drink flavor: ");
+        String flavor = getUserInput();
+
+        Drink drink = new Drink(size, flavor);
+        order.addDrink(drink);
+        System.out.println("Drink added to your order!");
+    }
+
+    private void addChips() {
+        System.out.println("\n--- Add Chips ---");
+        System.out.print("What chips would you like (e.g., Lays, Doritos): ");
+        String chip = getUserInput();
+
+        Chips chips = new Chips(chip);
+        order.addChips(chips);
+        System.out.println("Chips added to your order!");
     }
 
     // and so on and so on........
     public String getUserInput() {
         String choice = scanner.nextLine();
         return choice;
+    }
+
+    private void checkoutOrder() {
+        System.out.println("\n--- Checkout ---");
+        System.out.println(order.getOrderSummary());
+
+        System.out.print("Confirm order and save receipt? (yes/no): ");
+        String confirmChoice = getUserInput();
+        if (confirmChoice.equalsIgnoreCase("yes")) {
+            ReceiptWriter.saveReceipt(order);
+            System.out.println("Order confirmed! Receipt saved.");
+        } else {
+            System.out.println("Checkout cancelled. Returning to main menu.");
+        }
     }
 }

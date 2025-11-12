@@ -57,6 +57,7 @@ public class Sandwich {
         } else {
             meat = meatType;
         }
+        this.meats.add(meat);
         //   - what is the price based on size and whether it's extra?
         double meatPrice = switch (this.breadSize) {
             case 4 -> 1.00;
@@ -85,6 +86,7 @@ public class Sandwich {
         } else {
             cheese = cheeseType;
         }
+        this.cheeses.add(cheese);
         //   - add price depending on size and whether it's extra
         double cheesePrice = switch (this.breadSize) {
             case 4 -> 0.75;

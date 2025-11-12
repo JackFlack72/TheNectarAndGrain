@@ -1,30 +1,35 @@
 package com.pluralsight.ui;
 
+import com.pluralsight.model.Order;
+
 import java.util.Scanner;
 
 public class UserInterface {
     // declare a Scanner object for reading input from the console
-    Scanner scanner;
+    private Order order;
+    private Scanner scanner = new Scanner(System.in);
+
     // constructor:
 
-    public UserInterface(Scanner scanner) {
-        this.scanner = new Scanner(System.in);
+
+    public void display() {
+        boolean running = true;
     }
 
     // showHomeScreen:
-    public void showHomeScreen() {
+    public int showHomeScreen() {
         //   - print app title and welcome message
-        System.out.println("Welcome to The Nectar and Grain!");
-        //   - print:
-        while (running) {
-            //       1) New Order
-
-            //       0) Exit
-
-            //   - prompt user for choice
-
-            //   - return user input
-        }
+        System.out.println("\n╔════════════════════════════════════╗");
+        System.out.println("║      Welcome to The Nectar and Grain!       ║");
+        System.out.println("╚════════════════════════════════════╝");        //   - print:
+        //       1) New Order
+        System.out.println("1) New Order");
+        //       0) Exit
+        System.out.println("0) Exit");
+        //   - prompt user for choice
+        System.out.println("Enter your choice: ");
+        //   - return user input
+        return getUserInput();
     }
     // showOrderMenu:
     //   - print:
@@ -59,4 +64,7 @@ public class UserInterface {
     //   - return list of meats and extras
 
     // and so on and so on........
+    public int getUserInput() {
+
+    }
 }

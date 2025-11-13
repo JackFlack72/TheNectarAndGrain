@@ -84,7 +84,6 @@ public class ReceiptWriter {
         }
     }
 
-
     private static String generateTimestamp() {
         // Create timestamp string useing a formatter
         LocalDateTime now = LocalDateTime.now();

@@ -155,6 +155,7 @@ public class UserInterface {
         }
     }
 
+    // and so on and so on........
     private void promptForCheeses(Sandwich sandwich) {
         System.out.println("\nCheeses: Athena's Wisdom (american), Prometheus' Fire (provolone), Chimera's Kiss (cheddar), Sphinx's Secret (swiss)");
         System.out.println("(Enter: the translated name in parens, 'extra' to add extra cheese and 'done' when finished adding cheeses): ");
@@ -250,7 +251,6 @@ public class UserInterface {
         System.out.println("Golden Fleece added to your order!");
     }
 
-    // and so on and so on........
     public String getUserInput() {
         String choice = scanner.nextLine();
         return choice;

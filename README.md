@@ -44,13 +44,13 @@ This is a standard Java application and requires a Java Development Kit (JDK) to
     cd the-nectar-and-grain
     ```
 2.  **Compile and Run (using an IDE is recommended, but command line steps are below):**
-    
+
     Assuming you are in the project's root directory, you can compile the files (you may need to adjust the classpath):
     ```bash
     # This command may vary based on your project structure and compiler
     javac src/main/java/com/pluralsight/*.java src/main/java/com/pluralsight/ui/*.java src/main/java/com/pluralsight/model/*.java src/main/java/com/pluralsight/util/*.java
     ```
-    
+
     Then run the main class:
     ```bash
     java -cp src/main/java com.pluralsight.Program
@@ -70,7 +70,7 @@ Each receipt is named using a timestamp format (e.g., `20251113-110104.txt`).
 
 ---
 
-## UML Class Diagram (Conceptual) 
+## UML Class Diagram (Conceptual)
 *(A visual representation of the class structure is recommended here for completeness.)*
 
 The diagram illustrates the relationships, including the **Composition** relationship where the `Order` class aggregates `Sandwich`, `Drink`, and `Chips` objects.

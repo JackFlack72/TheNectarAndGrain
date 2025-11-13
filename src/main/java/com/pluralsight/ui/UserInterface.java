@@ -47,7 +47,7 @@ public class UserInterface {
     public String showHomeScreen() {
         //   - print app title and welcome message
         System.out.println("\n╔════════════════════════════════════╗");
-        System.out.println("║      Welcome to The Nectar and Grain!       ║");
+        System.out.println("║   Welcome to The Nectar and Grain!   ║");
         System.out.println("╚════════════════════════════════════╝");        //   - print:
         //       1) New Order
         System.out.println("1) New Order");
@@ -64,6 +64,7 @@ public class UserInterface {
         boolean runningOrderMenu = true;
         while (runningOrderMenu) {
             //   - print:
+            System.out.println("\n--- Menu ---");
             //       1) Add Sandwich
             System.out.println("1) Add Sandwich");
             //       2) Add Drink
@@ -139,10 +140,12 @@ public class UserInterface {
 
             if (meats.equalsIgnoreCase("done")) {
                 break;
-            } else if (meats.equalsIgnoreCase("extra")) {
-                sandwich.addMeat(meats, true);
-            } else {
-                sandwich.addMeat(meats, false);
+            } else if (!meats.isEmpty()) {
+                System.out.println("Would you like to add extra " + meats + "(yes/no): ");
+                String extraMeatChoice = scanner.nextLine();
+                boolean isExtraMeat = extraMeatChoice.equalsIgnoreCase("yes");
+                sandwich.addMeat(meats, isExtraMeat);
+                System.out.println("You added extra" + meats);
             }
         }
     }
@@ -156,10 +159,12 @@ public class UserInterface {
 
             if (cheeses.equalsIgnoreCase("done")) {
                 break;
-            } else if (cheeses.equalsIgnoreCase("extra")) {
-                sandwich.addCheese(cheeses, true);
-            } else {
-                sandwich.addCheese(cheeses, false);
+            } else if (!cheeses.isEmpty()) {
+                System.out.println("Would you like to add extra " + cheeses + "(yes/no): ");
+                String extraCheeseChoice = scanner.nextLine();
+                boolean isExtraCheese = extraCheeseChoice.equalsIgnoreCase("yes");
+                sandwich.addCheese(cheeses, isExtraCheese);
+                System.out.println("You added extra" + cheeses);
             }
         }
     }

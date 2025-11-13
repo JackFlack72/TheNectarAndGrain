@@ -5,6 +5,9 @@
 **The Nectar and Grain** is a console-based ordering system designed to simulate the process of building, totaling, and saving a customer's sandwich, drink, and chip order. This application uses a custom menu with mythological-themed names for items and demonstrates fundamental Java object-oriented principles, including class modeling and file I/O for receipt generation.
 
 ---
+## Class Diagram
+
+![TheNectarAndGrain.webp](diagrams/TheNectarAndGrain.webp)
 
 ## Key Features ✨
 
@@ -40,7 +43,7 @@ This is a standard Java application and requires a Java Development Kit (JDK) to
 
 1.  **Clone the Repository:**
     ```bash
-    git clone [YOUR_REPO_URL]
+    git clone [https://github.com/JackFlack72/TheNectarAndGrain]
     cd the-nectar-and-grain
     ```
 2.  **Compile and Run (using an IDE is recommended, but command line steps are below):**

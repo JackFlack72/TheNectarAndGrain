@@ -20,23 +20,27 @@ public class UserInterface {
 
 
     public void display() {
-        boolean running = true;
-        while (running) {
+        boolean runningDisplay = true;
+        while (runningDisplay) {
             String displayChoice = showHomeScreen();
             switch (displayChoice) {
                 case "1":
-                    addSandwich();
+                    startNewOrder();
                     break;
-                case "2":
-                    addDrink();
+                case "0":
+                    System.out.println("Thank you for trying The Nectar and Grain! Please come again soon!");
+                    runningDisplay = false;
                     break;
-                case "3":
-                    addChips();
-                    break;
-                case "4":
+                default:
+                    System.out.println("Invalid choice entered. Please try again.");
 
             }
         }
+    }
+
+    private void startNewOrder() {
+        order = new Order();
+        showOrderMenu();
     }
 
     // showHomeScreen:
@@ -153,9 +157,9 @@ public class UserInterface {
             if (cheeses.equalsIgnoreCase("done")) {
                 break;
             } else if (cheeses.equalsIgnoreCase("extra")) {
-                sandwich.addMeat(cheeses, true);
+                sandwich.addCheese(cheeses, true);
             } else {
-                sandwich.addMeat(cheeses, false);
+                sandwich.addCheese(cheeses, false);
             }
         }
     }
@@ -171,7 +175,7 @@ public class UserInterface {
                 break;
             }
             if (!toppings.isEmpty()) {
-                sandwich.addSauce(toppings);
+                sandwich.addTopping(toppings);
             }
         }
     }

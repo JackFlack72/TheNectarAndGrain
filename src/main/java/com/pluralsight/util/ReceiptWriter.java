@@ -17,7 +17,7 @@ public class ReceiptWriter {
     public static void saveReceipt(Order order) {
         // generate filename using current date/time (yyyyMMdd-HHmmss.txt)
         String fileName = generateTimestamp() + ".txt";
-        String filepath = "src/main/resources/receipts/" + fileName;
+        String filePath = "src/main/resources/receipts/" + fileName;
         // create a FileWriter and wrap in BufferedWriter (src/main/resources/receipts)
         File directory = new File("src/main/resources/receipts/");
         if (!directory.exists()) {
@@ -25,7 +25,7 @@ public class ReceiptWriter {
         }
         // loop through all order items
         //   - write the items to the to reciept
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filepath))) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
             // Write header
             writer.write("=========================================\n");
             writer.write("          The Nectar and Grain Receipt\n");
@@ -75,7 +75,7 @@ public class ReceiptWriter {
             writer.write(String.format("TOTAL: $%.2f\n", order.getTotal()));
             writer.write("=========================================\n");
             writer.write("\nThank you for your order!\n");
-            System.out.println("\nReceipt saved to: " + filepath);
+            System.out.println("\nReceipt saved to: " + filePath);
 
             // close BufferedWriter
             // handle IOException with error message

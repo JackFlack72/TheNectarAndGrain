@@ -229,25 +229,25 @@ public class UserInterface {
     }
 
     private void addDrink() {
-        System.out.println("\n--- Add a Drink ---");
-        System.out.print("Enter drink size (small, medium, large): ");
+        System.out.println("\n--- Add a Chalice of Divinity (drink) ---");
+        System.out.print("Enter drink size (Satyr's Sip (small), Muse's Measure (medium), Titan's Thirst (large)): ");
         String size = getUserInput().toLowerCase();
-        System.out.print("Enter drink flavor: ");
+        System.out.print("Enter drink flavor (Hades' Deep Brew (root beer), Nymph's Spring Water (lemon/lime), Aphrodite's Love Potion (cherry), Bacchus' Vintage (grape), River Lethe (water)): ");
         String flavor = getUserInput();
 
         Drink drink = new Drink(size, flavor);
         order.addDrink(drink);
-        System.out.println("Drink added to your order!");
+        System.out.println("Chalice of Divinity added to your order!");
     }
 
     private void addChips() {
-        System.out.println("\n--- Add Chips ---");
-        System.out.print("What chips would you like (e.g., Lays, Doritos): ");
+        System.out.println("\n--- Add a Golden Fleece (chips) ---");
+        System.out.print("What chips would you like (Pandora's Plain (regular), Phoenix Fire Smoke (bbq), Oracle's Onion Dip (sour cream and onion), Siren's Salty Call (salt and vinegar), Olympus' Flame (jalapeno), Midas' Golden Puffs (cheese puffs)): ");
         String chip = getUserInput();
 
         Chips chips = new Chips(chip);
         order.addChips(chips);
-        System.out.println("Chips added to your order!");
+        System.out.println("Golden Fleece added to your order!");
     }
 
     // and so on and so on........

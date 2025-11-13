@@ -1,0 +1,25 @@
+=========================================
+          The Nectar and Grain Receipt
+=========================================
+Date: November 13, 2025 14:26
+=========================================
+
+SANDWICHES:
+-----------------------------------------
+Sandwich #1:
+Bread: 'white', Size: 8, Toasted: yes, Meats: [ham (EXTRA)], Cheeses: [american], Toppings: [letuc, peppers], Sauces: [mayo, mustard], Total:  11.5
+Price: $11.50
+
+DRINKS:
+-----------------------------------------
+large cherry - $3.00
+
+CHIPS:
+-----------------------------------------
+regular - $1.50
+
+=========================================
+TOTAL: $16.00
+=========================================
+
+Thank you for your order!

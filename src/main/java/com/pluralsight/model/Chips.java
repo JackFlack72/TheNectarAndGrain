@@ -14,4 +14,13 @@ public class Chips {
     public double getPrice() {
         return 1.50;
     }
+
+    @Override
+    public String toString() {
+
+        final StringBuilder sb = new StringBuilder("Chips{");
+        sb.append("chipsType='").append(chipsType).append('\'');
+        sb.append('}');
+        return sb.toString();
+    }
 }

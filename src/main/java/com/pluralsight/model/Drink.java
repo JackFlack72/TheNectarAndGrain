@@ -25,4 +25,13 @@ public class Drink {
             default -> 0.00;
         };
     }
+
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("Drink{");
+        sb.append("drinkSize='").append(drinkSize).append('\'');
+        sb.append(", drinkFlavor='").append(drinkFlavor).append('\'');
+        sb.append('}');
+        return sb.toString();
+    }
 }

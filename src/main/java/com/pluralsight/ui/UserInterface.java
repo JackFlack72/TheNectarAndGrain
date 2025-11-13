@@ -61,8 +61,8 @@ public class UserInterface {
 
     // showOrderMenu:
     private void showOrderMenu() {
-        boolean orderMenu = true;
-        while (orderMenu) {
+        boolean runningOrderMenu = true;
+        while (runningOrderMenu) {
             //   - print:
             //       1) Add Sandwich
             System.out.println("1) Add Sandwich");
@@ -91,10 +91,10 @@ public class UserInterface {
                     break;
                 case "4":
                     checkoutOrder();
-                    orderMenu = false;
+                    runningOrderMenu = false;
                     break;
                 case "0":
-                    orderMenu = false;
+                    runningOrderMenu = false;
                     System.out.println("The order has been cancelled.");
                     break;
                 default:

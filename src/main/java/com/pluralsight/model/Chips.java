@@ -18,9 +18,8 @@ public class Chips {
     @Override
     public String toString() {
 
-        final StringBuilder sb = new StringBuilder("Chips{");
-        sb.append("chipsType='").append(chipsType).append('\'');
-        sb.append('}');
+        final StringBuilder sb = new StringBuilder("CHIPS = ");
+        sb.append("Type of Chips: '").append(chipsType).append('\'');
         return sb.toString();
     }
 }

@@ -28,10 +28,9 @@ public class Drink {
 
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder("Drink{");
-        sb.append("drinkSize='").append(drinkSize).append('\'');
-        sb.append(", drinkFlavor='").append(drinkFlavor).append('\'');
-        sb.append('}');
+        final StringBuilder sb = new StringBuilder("DRINK = ");
+        sb.append("Drink Size: '").append(drinkSize).append('\'');
+        sb.append(", Drink Flavor: '").append(drinkFlavor).append('\'');
         return sb.toString();
     }
 }

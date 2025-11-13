@@ -73,7 +73,6 @@ public class Order {
 
     // getOrderSummary method:
     //   - return formatted string of all items and total
-    // AI generated method
     public String getOrderSummary() {
         StringBuilder sb = new StringBuilder();
         sb.append("=========================================\n");

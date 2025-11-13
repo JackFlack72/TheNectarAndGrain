@@ -145,12 +145,11 @@ public class UserInterface {
                 String extraMeatChoice = scanner.nextLine();
                 boolean isExtraMeat = extraMeatChoice.equalsIgnoreCase("yes");
                 sandwich.addMeat(meats, isExtraMeat);
-                String extraMeatOrNot = "You added ";
                 if (isExtraMeat) {
-                    extraMeatOrNot += meats;
+                    System.out.println("You added extra " + meats);
+                } else {
+                    System.out.println("You added " + meats);
                 }
-                extraMeatOrNot += meats;
-                System.out.println(extraMeatOrNot);
             }
         }
     }
@@ -170,12 +169,11 @@ public class UserInterface {
                 String extraCheeseChoice = scanner.nextLine();
                 boolean isExtraCheese = extraCheeseChoice.equalsIgnoreCase("yes");
                 sandwich.addCheese(cheeses, isExtraCheese);
-                String extraCheeseOrNot = "You added ";
                 if (isExtraCheese) {
-                    extraCheeseOrNot += cheeses;
+                    System.out.println("You added extra " + cheeses);
+                } else {
+                    System.out.println("You added " + cheeses);
                 }
-                extraCheeseOrNot += cheeses;
-                System.out.println(extraCheeseOrNot);
             }
         }
     }

@@ -53,7 +53,7 @@ public class Sandwich {
         //   - add meat(s)
         String meat;
         if (isExtra) {
-            meat = meatType + " is (EXTRA)";
+            meat = meatType + " (EXTRA)";
         } else {
             meat = meatType;
         }
@@ -82,7 +82,7 @@ public class Sandwich {
         //   - add cheese(s)
         String cheese;
         if (isExtra) {
-            cheese = cheeseType + " is (EXTRA)";
+            cheese = cheeseType + " (EXTRA)";
         } else {
             cheese = cheeseType;
         }
@@ -131,17 +131,14 @@ public class Sandwich {
     public String getSummary() {
         StringBuilder sb = new StringBuilder();
 
-        sb.append("=========================================\n");
-        sb.append("           SANDWICH SUMMARY\n");
-        sb.append("=========================================\n");
-        sb.append("breadType = '").append(breadType).append('\'');
-        sb.append(", breadSize = ").append(breadSize);
-        sb.append(", isToasted = ").append(toasted);
-        sb.append(", meats = ").append(meats);
-        sb.append(", cheeses = ").append(cheeses);
-        sb.append(", toppings = ").append(toppings);
-        sb.append(", sauces = ").append(sauces);
-        sb.append(", totalPrice = ").append(totalPrice);
+        sb.append("Bread: '").append(breadType).append('\'');
+        sb.append(", Size: ").append(breadSize);
+        sb.append(", Toasted: ").append(toasted);
+        sb.append(", Meats: ").append(meats);
+        sb.append(", Cheeses: ").append(cheeses);
+        sb.append(", Toppings: ").append(toppings);
+        sb.append(", Sauces: ").append(sauces);
+        sb.append(", Total:  ").append(totalPrice);
         return sb.toString();
     }
 }

@@ -47,7 +47,7 @@ public class UserInterface {
     public String showHomeScreen() {
         //   - print app title and welcome message
         System.out.println("\n╔════════════════════════════════════╗");
-        System.out.println("║   Welcome to The Nectar and Grain!   ║");
+        System.out.println("║  Welcome to The Nectar and Grain!  ║");
         System.out.println("╚════════════════════════════════════╝");        //   - print:
         //       1) New Order
         System.out.println("1) New Order");
@@ -117,7 +117,7 @@ public class UserInterface {
     // promptForSize:
     private String promptForSize() {
         //   - ask user: "What size? (4, 8, or 12 inches)"
-        System.out.println("\nSandwich size (4, 8, 12 inches: ");
+        System.out.println("\nSandwich size (4, 8, 12 inches): ");
         //   - return user input
         return getUserInput();
     }
@@ -145,7 +145,12 @@ public class UserInterface {
                 String extraMeatChoice = scanner.nextLine();
                 boolean isExtraMeat = extraMeatChoice.equalsIgnoreCase("yes");
                 sandwich.addMeat(meats, isExtraMeat);
-                System.out.println("You added extra" + meats);
+                String extraMeatOrNot = "You added ";
+                if (isExtraMeat) {
+                    extraMeatOrNot += meats;
+                }
+                extraMeatOrNot += meats;
+                System.out.println(extraMeatOrNot);
             }
         }
     }
@@ -164,7 +169,12 @@ public class UserInterface {
                 String extraCheeseChoice = scanner.nextLine();
                 boolean isExtraCheese = extraCheeseChoice.equalsIgnoreCase("yes");
                 sandwich.addCheese(cheeses, isExtraCheese);
-                System.out.println("You added extra" + cheeses);
+                String extraCheeseOrNot = "You added ";
+                if (isExtraCheese) {
+                    extraCheeseOrNot += cheeses;
+                }
+                extraCheeseOrNot += cheeses;
+                System.out.println(extraCheeseOrNot);
             }
         }
     }

@@ -1,0 +1,25 @@
+=========================================
+          The Nectar and Grain Receipt
+=========================================
+Date: November 14, 2025 11:03
+=========================================
+
+SANDWICHES:
+-----------------------------------------
+Sandwich #1:
+Bread: 'wrap', Size: 4, Toasted: no, Meats: [ham (EXTRA)], Cheeses: [swiss], Toppings: [lettuce, peppers], Sauces: [mayo, ranch], Total:  7.75
+Price: $7.75
+
+DRINKS:
+-----------------------------------------
+small water - $2.00
+
+CHIPS:
+-----------------------------------------
+bbq - $1.50
+
+=========================================
+TOTAL: $11.25
+=========================================
+
+Thank you for your order!
